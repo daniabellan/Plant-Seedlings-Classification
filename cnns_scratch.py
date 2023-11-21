@@ -47,7 +47,7 @@ def show_results(history_list):
     plt.show()
 
 
-def load_data(gray_scale=False, augmenter=False, input_size=(224,224), batch_size=64):
+def load_data(gray_scale=False, augmenter=False, input_size=(224,224), batch_size=32):
     """Carga los tres datasets: train, test y valid
 
     Args:

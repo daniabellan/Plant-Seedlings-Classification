@@ -3,6 +3,7 @@ from tensorflow.keras.callbacks import Callback
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class HistoryAndPlotCallback(Callback):
     def __init__(self, model_name):
@@ -19,7 +20,7 @@ class HistoryAndPlotCallback(Callback):
         acc_av = np.average(history["acc"][-1])
         val_acc_av = np.average(history["val_acc"][-1])
         y_upper_limit = np.max([loss_av, val_loss_av, acc_av, val_acc_av])
-        y_upper_limit += y_upper_limit*0.3 
+        y_upper_limit *= 2
 
         np.save(f'models/{self.model_name}/training_history.npy', history)
 
@@ -33,7 +34,7 @@ class HistoryAndPlotCallback(Callback):
         plt.plot(np.arange(0, epochs), history["acc"], label="train_acc")
         plt.plot(np.arange(0, epochs), history["val_acc"], label="val_acc")
         
-        plt.title("Training Loss and Accuracy")
+        plt.title(f"Training Loss and Accuracy - {self.model_name}")
         plt.xlabel("Epoch #")
         plt.ylabel("Loss/Accuracy")
         plt.legend(loc='upper left')
@@ -44,19 +45,22 @@ class HistoryAndPlotCallback(Callback):
         plt.savefig(f'models/{self.model_name}/training_plot.png')
         plt.close()
 
+        # Guardar history para revisar en el futuro por si se activa un earlystopping o cualquier problema
+        pd.DataFrame.from_dict(history).to_csv(f'models/{self.model_name}/history.csv', index=False)
+
 
 def get_callbacks(model_name):
     callbacks = [
         EarlyStopping(
-            monitor = 'acc', 
+            monitor = 'val_loss', 
             mode = 'min', 
             patience = 20, 
             verbose=1,
             restore_best_weights=False),
         ModelCheckpoint(
             filepath = f'models/{model_name}',
-            monitor = 'acc',
-            mode = 'max',
+            monitor = 'val_loss',
+            mode = 'min',
             save_best_only = True,
             verbose = 1),
         HistoryAndPlotCallback(model_name),
