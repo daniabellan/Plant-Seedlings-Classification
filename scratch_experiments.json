@@ -1,0 +1,211 @@
+{
+    "model1": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block1"
+                },
+                
+                {
+                    "filters": 128, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block2"
+                },
+                
+                {
+                    "filters": 256, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block3"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    },
+    
+    "model1_nobatchnorm": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block1"
+                },
+                {
+                    "filters": 128, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block2"},
+                {
+                    "filters": 256, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block3"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    },
+    
+    "model2": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [5, 5], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block1"},
+                {
+                    "filters": 128, 
+                    "kernel_size": [5, 5], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block2"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    },
+
+    "model2_nobatchnorm": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [5, 5], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block1"},
+                {
+                    "filters": 128, 
+                    "kernel_size": [5, 5], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block2"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    },
+
+    "model3": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block1"
+                },
+                {
+                    "filters": 128, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block2"
+                },
+                {
+                    "filters": 256, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block3"
+                },
+                {
+                    "filters": 512, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": true, 
+                    "dropout_value": 0.1,
+                    "name": "block4"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    },
+
+    "model3_nobatchnorm": {
+        "model": {
+            "conv_block_configs": [
+                {
+                    "filters": 64, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block1"
+                },
+                {
+                    "filters": 128, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block2"
+                },
+                {
+                    "filters": 256, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block3"
+                },
+                {
+                    "filters": 512, 
+                    "kernel_size": [3, 3], 
+                    "use_maxpooling": true, 
+                    "use_batchnorm": false, 
+                    "dropout_value": 0.1,
+                    "name": "block4"
+                }
+            ]
+        },
+        "training": {
+            "steps_per_epoch": 32,
+            "epochs": 50
+        }
+    }
+  }
+  
